@@ -1,0 +1,22 @@
+Package: quickpalette
+Version: 0.0.0.9000
+Title: Allows quick extraction of color palettes from web sources
+Description: Allows for extraction of color palettes from complicated strings 
+    and charts typically found online.
+Authors@R: person("Emil", "Hvitfeldt", , "emilhhvitfeldt@gmail.com", c("aut", "cre"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Suggests: 
+    testthat
+URL: https://github.com/EmilHvitfeldt/quickpalette
+BugReports: https://github.com/EmilHvitfeldt/quickpalette/issues
+RoxygenNote: 6.0.1.9000
+Imports: 
+    stringr,
+    magrittr,
+    png,
+    RCurl,
+    cluster,
+    jpeg
