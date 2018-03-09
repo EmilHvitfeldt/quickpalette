@@ -76,14 +76,16 @@ Take this chart as an example, it has 5 different colors we would like to know.
 
 <img src="man/figures/README-testchart-1.png" width="80%" />
 
-Using the `url_palette` we we can copy url of the chart and extract the main colors using clustering algorithms. `url_palette` defaults to removing all grey scale pixels as they tend to not be of interest. It used a variation of Partitioning Around Medoids (PAM) clustering to ensure that the colors actually appeared in the image.
+Using the `url_palette` we we can copy url of the chart and extract the main colors using clustering algorithms. `url_palette` defaults to removing all grey scale pixels as they tend to not be of interest. It used a variation of Partitioning Around Medoids (PAM) clustering to ensure that the colors actually appeared in the image. Manual varying of the `n_cluster` argument is often necessary.
 
 ``` r
 library(magrittr)
-url <- "http://serialmentor.com/dataviz/color_basics_files/figure-html4/popgrowth-US-1.png"
+url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
 url_palette(url, n_clusters = 5) %>%
   pals::pal.bands()
 ```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="80%" />
 
 Sample of palettes
 ------------------
