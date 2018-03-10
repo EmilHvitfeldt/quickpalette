@@ -4,7 +4,8 @@
 \alias{url_palette}
 \title{Extracts a color palette from a image by url}
 \usage{
-url_palette(url, n_clusters = 1, rm_color = c("greyscale"))
+url_palette(url, n_clusters = 1, rm_color = c("greyscale"),
+  warnings = TRUE)
 }
 \arguments{
 \item{url}{A character string of the url with the png.}
@@ -13,6 +14,9 @@ url_palette(url, n_clusters = 1, rm_color = c("greyscale"))
 
 \item{rm_color}{removes certain kinds of colors. Must be one of
 "greyscale", "white" or "black".}
+
+\item{warnings}{If FALSE will suppress the warnings coming from loading the
+image file. Defaults to TRUE.}
 }
 \value{
 A color palette as a string.
@@ -39,14 +43,6 @@ using standard k-means. This is particular helpfull since most charts only
 have a handfull of different colors in them.
 }
 \examples{
-text1 <- "3b59988b9dc3dfe3eef7f7f7ffffff"
-text2 <- "the palatte is #3472bc, #345682 then #112233 and finally #cbac43"
-
-# Returns vector when input is of length 1
-regex_palette(text1)
-regex_palette(text2)
-
-text3 <- c("3b59988b9dc3dfe3eef7f7f7ffffff", "3b59988b9dc3dfe3eef7f7f7ffffff")
-
-regex_palette(text3)
+url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
+url_palette(url, n_cluster = 5)
 }

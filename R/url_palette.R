@@ -23,30 +23,33 @@
 #' @param n_clusters number of clusters. Defaults to 1.
 #' @param rm_color removes certain kinds of colors. Must be one of
 #'     "greyscale", "white" or "black".
+#' @param warnings If FALSE will suppress the warnings coming from loading the
+#'     image file. Defaults to TRUE.
 #' @return A color palette as a string.
 #' @examples
-#' text1 <- "3b59988b9dc3dfe3eef7f7f7ffffff"
-#' text2 <- "the palatte is #3472bc, #345682 then #112233 and finally #cbac43"
-#'
-#' # Returns vector when input is of length 1
-#' regex_palette(text1)
-#' regex_palette(text2)
-#'
-#' text3 <- c("3b59988b9dc3dfe3eef7f7f7ffffff", "3b59988b9dc3dfe3eef7f7f7ffffff")
-#'
-#' regex_palette(text3)
+#' url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
+#' url_palette(url, n_cluster = 5)
 #' @export
-url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale")) {
+url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
+                        warnings = TRUE) {
 
   if(!stringr::str_detect(url, "(png|jpg)")) {
     stop("url_palette only supports .png and files")
   }
 
   if(stringr::str_detect(url, "png")) {
-    my_image <- png::readPNG(RCurl::getURLContent(url))
+    if(warnings) {
+      my_image <- png::readPNG(RCurl::getURLContent(url))
+    } else {
+      my_image <- suppressWarnings(png::readPNG(RCurl::getURLContent(url)))
+    }
   }
   if(stringr::str_detect(url, "jpg")) {
-    my_image <- jpeg::readJPEG(RCurl::getURLContent(url))
+    if(warnings) {
+      my_image <- jpeg::readJPEG(RCurl::getURLContent(url))
+    } else {
+      my_image <- suppressWarnings(jpeg::readJPEG(RCurl::getURLContent(url)))
+    }
   }
 
   dimension <- dim(my_image)
