@@ -1,5 +1,5 @@
 Package: quickpalette
-Version: 0.1.1
+Version: 0.1.2
 Title: Allows quick extraction of color palettes from web sources
 Description: Allows for extraction of color palettes from complicated strings 
     and charts typically found online.
