@@ -15,6 +15,15 @@ And the development version from [GitHub](https://github.com/) with:
 ``` r
 # install.packages("devtools")
 devtools::install_github("EmilHvitfeldt/quickpalette")
+#> Downloading GitHub repo EmilHvitfeldt/quickpalette@master
+#> from URL https://api.github.com/repos/EmilHvitfeldt/quickpalette/zipball/master
+#> Installing quickpalette
+#> '/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file  \
+#>   --no-environ --no-save --no-restore --quiet CMD INSTALL  \
+#>   '/private/var/folders/nj/s2k7d2_93t9_87brhynnfwvc0000gn/T/RtmpfIsGnM/devtools33cd6e8107cd/EmilHvitfeldt-quickpalette-642bcd8'  \
+#>   --library='/Library/Frameworks/R.framework/Versions/3.4/Resources/library'  \
+#>   --install-tests
+#> 
 ```
 
 Examples
@@ -85,7 +94,7 @@ url_palette(url, n_clusters = 5) %>%
   pals::pal.bands()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="80%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
 
 Sample of palettes
 ------------------
@@ -104,4 +113,25 @@ pals::pal.bands(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="80%" />
+
+``` r
+pals::pal.bands(
+  mschart[[1]],
+  mschart[[2]],
+  mschart[[3]],
+  mschart[[4]],
+  mschart[[5]],
+  mschart[[6]],
+  mschart[[7]],
+  mschart[[8]],
+  mschart[[9]],
+  mschart[[10]],
+  mschart[[11]],
+  mschart[[12]],
+  labels = names(mschart),
+  main = "mschart"
+)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="80%" />

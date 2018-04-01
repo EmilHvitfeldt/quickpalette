@@ -25,7 +25,7 @@ The goal of quickpalette is to provide a few tools to quickly acquire new color 
 
 And the development version from [GitHub](https://github.com/) with:
 
-``` r
+```{r}
 # install.packages("devtools")
 devtools::install_github("EmilHvitfeldt/quickpalette")
 ```
@@ -117,3 +117,21 @@ pals::pal.bands(
 )
 ```
 
+```{r}
+pals::pal.bands(
+  mschart[[1]],
+  mschart[[2]],
+  mschart[[3]],
+  mschart[[4]],
+  mschart[[5]],
+  mschart[[6]],
+  mschart[[7]],
+  mschart[[8]],
+  mschart[[9]],
+  mschart[[10]],
+  mschart[[11]],
+  mschart[[12]],
+  labels = names(mschart),
+  main = "mschart"
+)
+```
