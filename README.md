@@ -1,49 +1,47 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-quickpalette
-============
 
-[![Travis build status](https://travis-ci.org/EmilHvitfeldt/quickpalette.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/quickpalette)
+# quickpalette
 
-The goal of quickpalette is to provide a few tools to quickly acquire new color palettes to be used in R.
+[![Travis build
+status](https://travis-ci.org/EmilHvitfeldt/quickpalette.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/quickpalette)
 
-Installation
-------------
+The goal of quickpalette is to provide a few tools to quickly acquire
+new color palettes to be used in R.
+
+## Installation
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("EmilHvitfeldt/quickpalette")
-#> Downloading GitHub repo EmilHvitfeldt/quickpalette@master
-#> from URL https://api.github.com/repos/EmilHvitfeldt/quickpalette/zipball/master
-#> Installing quickpalette
-#> '/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file  \
-#>   --no-environ --no-save --no-restore --quiet CMD INSTALL  \
-#>   '/private/var/folders/nj/s2k7d2_93t9_87brhynnfwvc0000gn/T/RtmpfIsGnM/devtools33cd6e8107cd/EmilHvitfeldt-quickpalette-642bcd8'  \
-#>   --library='/Library/Frameworks/R.framework/Versions/3.4/Resources/library'  \
-#>   --install-tests
-#> 
 ```
 
-Examples
---------
+## Examples
 
 ### regex\_palette
 
-Sometimes you see a color palette online and you want to use it in R, but it usually takes half a war to copy/paste in the individual hex values. The `regex_palette` function will try its best to extract a color palette from a string and return it, with the conventional leading \#. Now you just copy-paste the whole thing into a string and run the function.
+Sometimes you see a color palette online and you want to use it in R,
+but it usually takes half a war to copy/paste in the individual hex
+values. The `regex_palette` function will try its best to extract a
+color palette from a string and return it, with the conventional leading
+\#. Now you just copy-paste the whole thing into a string and run the
+function.
 
 Example of websites where this function could be useful includes:
 
--   <http://colorpalettes.net/>
--   <http://paletton.com/>
--   <https://learnui.design/tools/data-color-picker.html>
--   <http://tools.medialab.sciences-po.fr/iwanthue/>
--   <http://www.color-hex.com/color-palettes/>
--   <http://www.colourlovers.com/palettes>
--   <https://www.w3schools.com/colors/colors_palettes.asp>
--   <http://colorhunt.co/>
--   <https://coolors.co/>
+  - <http://colorpalettes.net/>
+  - <http://paletton.com/>
+  - <https://learnui.design/tools/data-color-picker.html>
+  - <http://tools.medialab.sciences-po.fr/iwanthue/>
+  - <http://www.color-hex.com/color-palettes/>
+  - <http://www.colourlovers.com/palettes>
+  - <https://www.w3schools.com/colors/colors_palettes.asp>
+  - <http://colorhunt.co/>
+  - <https://coolors.co/>
+
+<!-- end list -->
 
 ``` r
 library(quickpalette)
@@ -79,13 +77,23 @@ regex_palette(test4)
 
 ### url\_palette
 
-Sometimes you come across a chart with a nifty looking color palettes, but the code have been left out for one reason or another. Normally you would have 2 choices, either go hunting to for the generating code in the hopes that you will be able to find the colors used or using you favorite color meter of choice you get each color individually.
+Sometimes you come across a chart with a nifty looking color palettes,
+but the code have been left out for one reason or another. Normally you
+would have 2 choices, either go hunting to for the generating code in
+the hopes that you will be able to find the colors used or using you
+favorite color meter of choice you get each color individually.
 
-Take this chart as an example, it has 5 different colors we would like to know.
+Take this chart as an example, it has 5 different colors we would like
+to know.
 
-<img src="man/figures/README-testchart-1.png" width="80%" />
+![](man/figures/README-testchart-1.png)<!-- -->
 
-Using the `url_palette` we we can copy url of the chart and extract the main colors using clustering algorithms. `url_palette` defaults to removing all grey scale pixels as they tend to not be of interest. It used a variation of Partitioning Around Medoids (PAM) clustering to ensure that the colors actually appeared in the image. Manual varying of the `n_cluster` argument is often necessary.
+Using the `url_palette` we we can copy url of the chart and extract the
+main colors using clustering algorithms. `url_palette` defaults to
+removing all grey scale pixels as they tend to not be of interest. It
+used a variation of Partitioning Around Medoids (PAM) clustering to
+ensure that the colors actually appeared in the image. Manual varying of
+the `n_cluster` argument is often necessary.
 
 ``` r
 library(magrittr)
@@ -94,10 +102,9 @@ url_palette(url, n_clusters = 5) %>%
   pals::pal.bands()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
-Sample of palettes
-------------------
+## Sample of palettes
 
 And last but not least a handful of stylistic palettes.
 
@@ -113,7 +120,7 @@ pals::pal.bands(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="80%" />
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 pals::pal.bands(
@@ -134,4 +141,4 @@ pals::pal.bands(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="80%" />
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->

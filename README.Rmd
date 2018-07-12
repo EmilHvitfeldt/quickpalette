@@ -10,9 +10,7 @@ knit_hooks$set(optipng = hook_optipng)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "80%",
-  "optipng" = "-o5"
+  fig.path = "man/figures/README-"
 )
 ```
 # quickpalette
@@ -25,7 +23,7 @@ The goal of quickpalette is to provide a few tools to quickly acquire new color 
 
 And the development version from [GitHub](https://github.com/) with:
 
-```{r}
+```{r, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("EmilHvitfeldt/quickpalette")
 ```
