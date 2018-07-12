@@ -5,7 +5,7 @@
 \title{Extracts a color palette from a image by url}
 \usage{
 url_palette(url, n_clusters = 1, rm_color = c("greyscale"),
-  warnings = TRUE)
+  warnings = TRUE, colorspace = "rgb")
 }
 \arguments{
 \item{url}{A character string of the url with the png.}
@@ -17,6 +17,10 @@ url_palette(url, n_clusters = 1, rm_color = c("greyscale"),
 
 \item{warnings}{If FALSE will suppress the warnings coming from loading the
 image file. Defaults to TRUE.}
+
+\item{colorspace}{The colorspace in which the clustering is taking place.
+Allowed values are: "cmy", "cmyk", "hsl", "hsb", "hsv", "lab",
+"hunterlab", "lch", "luv", "rgb", "xyz", "yxy".}
 }
 \value{
 A color palette as a string.

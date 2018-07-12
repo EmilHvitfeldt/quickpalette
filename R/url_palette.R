@@ -25,13 +25,16 @@
 #'     "greyscale", "white" or "black".
 #' @param warnings If FALSE will suppress the warnings coming from loading the
 #'     image file. Defaults to TRUE.
+#' @param colorspace The colorspace in which the clustering is taking place.
+#'     Allowed values are: "cmy", "cmyk", "hsl", "hsb", "hsv", "lab",
+#'     "hunterlab", "lch", "luv", "rgb", "xyz", "yxy".
 #' @return A color palette as a string.
 #' @examples
 #' url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
 #' url_palette(url, n_cluster = 5)
 #' @export
 url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
-                        warnings = TRUE) {
+                        warnings = TRUE, colorspace = "rgb") {
 
   if(!stringr::str_detect(url, "(png|jpg)")) {
     stop("url_palette only supports .png and files")
@@ -55,8 +58,6 @@ url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
   dimension <- dim(my_image)
 
   image_rgb <- data.frame(
-    x = rep(1:dimension[2], each = dimension[1]),
-    y = rep(dimension[1]:1, dimension[2]),
     R = as.vector(my_image[, , 1]),
     G = as.vector(my_image[, , 2]),
     B = as.vector(my_image[, , 3])
@@ -77,7 +78,9 @@ url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
                              image_rgb$B == 0), ]
   }
 
-  k_medoids <- cluster::clara(image_rgb[, c("R", "G", "B")], k = n_clusters)
+  image_rgb <- farver::convert_colour(image_rgb, "rgb", colorspace)
 
-  rgb(k_medoids$medoids)
+  k_medoids <- cluster::clara(image_rgb, k = n_clusters)
+
+  rgb(pmax(farver::convert_colour(k_medoids$medoids, colorspace, "rgb"), 0))
 }

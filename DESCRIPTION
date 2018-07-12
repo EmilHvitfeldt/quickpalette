@@ -12,11 +12,14 @@ Suggests:
     testthat
 URL: https://github.com/EmilHvitfeldt/quickpalette
 BugReports: https://github.com/EmilHvitfeldt/quickpalette/issues
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.0.1
 Imports: 
     stringr,
     magrittr,
     png,
     RCurl,
     cluster,
-    jpeg
+    jpeg,
+    farver
+Remotes:  
+    thomasp85/farver
