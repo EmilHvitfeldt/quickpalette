@@ -31,7 +31,7 @@
 #' @return A color palette as a string.
 #' @examples
 #' url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
-#' url_palette(url, n_cluster = 5)
+#' url_palette(url, n_clusters = 5)
 #' @export
 url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
                         warnings = TRUE, colorspace = "rgb") {
