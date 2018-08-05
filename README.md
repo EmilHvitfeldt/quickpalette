@@ -6,8 +6,8 @@
 [![Travis build
 status](https://travis-ci.org/EmilHvitfeldt/quickpalette.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/quickpalette)
 
-The goal of quickpalette is to provide a few tools to quickly acquire
-new color palettes to be used in R.
+The goal of **quickpalette** is to provide a few tools to quickly
+acquire new color palettes to be used in R.
 
 ## Installation
 
