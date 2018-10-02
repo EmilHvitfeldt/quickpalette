@@ -78,7 +78,7 @@ regex_palette(test4)
 #> [1] "#3472bc" "#345682" "#112233" "#cbac43"
 ```
 
-### Update - 01/10/18 - Paste directly from clipboard 
+### Paste directly from clipboard 
 
 Copy the colour codes from the website and use the `Paste as Palette` addin that comes with the package to convert the text to respective colour codes. 
 
