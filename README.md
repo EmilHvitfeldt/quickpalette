@@ -7,7 +7,7 @@
 status](https://travis-ci.org/EmilHvitfeldt/quickpalette.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/quickpalette)
 
 
-![quickpalette-demo]()
+![quickpalette-demo](https://raw.githubusercontent.com/apoorv74/quickpalette/master/inst/quickpalette_demo.gif)
 
 The goal of **quickpalette** is to provide a few tools to quickly
 acquire new color palettes to be used in R.
