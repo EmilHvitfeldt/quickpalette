@@ -6,6 +6,9 @@
 [![Travis build
 status](https://travis-ci.org/EmilHvitfeldt/quickpalette.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/quickpalette)
 
+
+![quickpalette-demo]()
+
 The goal of **quickpalette** is to provide a few tools to quickly
 acquire new color palettes to be used in R.
 
@@ -74,6 +77,12 @@ regex_palette(test3)
 regex_palette(test4)
 #> [1] "#3472bc" "#345682" "#112233" "#cbac43"
 ```
+
+### Update - 01/10/18 - Paste directly from clipboard 
+
+Copy the colour codes from the website and use the `Paste as Palette` addin that comes with the package to convert the text to respective colour codes. 
+
+Tip - For a faster workaround, Set the keyboard shortcuts using **Tools** -> **Addins** -> **Browse Addins**, then click **Keyboard Shortcuts...**
 
 ### url\_palette
 

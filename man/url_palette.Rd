@@ -48,5 +48,5 @@ have a handfull of different colors in them.
 }
 \examples{
 url <- "https://raw.githubusercontent.com/EmilHvitfeldt/quickpalette/master/man/figures/README-testchart-1.png"
-url_palette(url, n_cluster = 5)
+url_palette(url, n_clusters = 5)
 }
