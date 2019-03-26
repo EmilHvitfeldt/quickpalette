@@ -10,6 +10,7 @@ LazyData: true
 ByteCompile: true
 Suggests: 
     testthat
+    rstudioapi
 URL: https://github.com/EmilHvitfeldt/quickpalette
 BugReports: https://github.com/EmilHvitfeldt/quickpalette/issues
 RoxygenNote: 6.0.1
