@@ -1,0 +1,4 @@
+Name: Paste as Palette
+Description: Pastes a string from the clipboard to the editor as a colour pallete (with the conventional leading #)
+Binding: palette_paste
+Interactive: false

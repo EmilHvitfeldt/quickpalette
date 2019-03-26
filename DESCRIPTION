@@ -9,7 +9,8 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Suggests: 
-    testthat
+    testthat,
+    rstudioapi
 URL: https://github.com/EmilHvitfeldt/quickpalette
 BugReports: https://github.com/EmilHvitfeldt/quickpalette/issues
 RoxygenNote: 6.0.1
@@ -20,6 +21,7 @@ Imports:
     RCurl,
     cluster,
     jpeg,
-    farver
+    farver,
+    clipr
 Remotes:  
     thomasp85/farver
