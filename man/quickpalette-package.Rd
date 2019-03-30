@@ -6,7 +6,8 @@
 \alias{quickpalette-package}
 \title{Quickly create palettes from outside sources}
 \description{
-Quickly create palettes from outside sources
+Allows for extraction of color palettes from complicated strings 
+    and charts typically found online.
 }
 \seealso{
 Useful links:
