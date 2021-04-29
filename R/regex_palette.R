@@ -23,8 +23,8 @@ regex_palette <- function(text) {
     lapply(function(x) ifelse(x == "#", NA, x))
 
   if(length(palettes) == 1) {
-    return(unlist(palettes))
+    return(prismatic::color(unlist(palettes)))
   }
 
-  palettes
+  lapply(palettes, prismatic::color)
 }

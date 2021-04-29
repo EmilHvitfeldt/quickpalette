@@ -53,7 +53,11 @@ url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
 
   k_medoids <- cluster::clara(image_rgb, k = n_clusters)
 
-  rgb(pmax(farver::convert_colour(k_medoids$medoids, colorspace, "rgb"), 0))
+  res <- rgb(
+    pmax(farver::convert_colour(k_medoids$medoids, colorspace, "rgb"), 0)
+  )
+
+  prismatic::color(res)
 }
 
 exclude_colors <- function(x, rm_color) {

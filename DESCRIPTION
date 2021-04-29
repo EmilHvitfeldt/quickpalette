@@ -20,4 +20,5 @@ Imports:
     RCurl,
     cluster,
     jpeg,
-    farver
+    farver,
+    prismatic

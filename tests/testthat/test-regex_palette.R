@@ -5,8 +5,8 @@ test_that("regex_palette returns a vector with correct number of outputs with
   text <- '"#1B9E77" "#D95F02" "#7570B3" "#E7298A" "#66A61E"'
 
   expect_equal(length(regex_palette(text)), 5)
-  expect_is(regex_palette(text), "character")
-  expect_equal(regex_palette(""), NA)
+  expect_is(regex_palette(text), "colors")
+  expect_equal(regex_palette(""), prismatic::color(NA))
 })
 
 test_that("regex_palette returns a list with correct number of outputs with
