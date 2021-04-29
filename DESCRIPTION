@@ -12,7 +12,7 @@ Suggests:
     testthat
 URL: https://github.com/EmilHvitfeldt/quickpalette
 BugReports: https://github.com/EmilHvitfeldt/quickpalette/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1.9001
 Imports: 
     stringr,
     magrittr,

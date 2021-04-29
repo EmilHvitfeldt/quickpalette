@@ -4,8 +4,13 @@
 \alias{url_palette}
 \title{Extracts a color palette from a image by url}
 \usage{
-url_palette(url, n_clusters = 1, rm_color = c("greyscale"),
-  warnings = TRUE, colorspace = "rgb")
+url_palette(
+  url,
+  n_clusters = 1,
+  rm_color = c("greyscale"),
+  warnings = TRUE,
+  colorspace = "rgb"
+)
 }
 \arguments{
 \item{url}{A character string of the url with the png.}
