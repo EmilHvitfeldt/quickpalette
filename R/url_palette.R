@@ -37,8 +37,43 @@
 url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
                         warnings = TRUE, colorspace = "rgb") {
 
+  my_image <- url_to_array(url, warnings)
+
+  dimension <- dim(my_image)
+
+  image_rgb <- data.frame(
+    R = as.vector(my_image[, , 1]),
+    G = as.vector(my_image[, , 2]),
+    B = as.vector(my_image[, , 3])
+  )
+
+  image_rgb <- exclude_colors(image_rgb, rm_color)
+
+  image_rgb <- farver::convert_colour(image_rgb, "rgb", colorspace)
+
+  k_medoids <- cluster::clara(image_rgb, k = n_clusters)
+
+  rgb(pmax(farver::convert_colour(k_medoids$medoids, colorspace, "rgb"), 0))
+}
+
+exclude_colors <- function(x, rm_color) {
+  if("greyscale" %in% rm_color) {
+    x <- x[!(x$R == x$G & x$G == x$B), ]
+  }
+
+  if("white" %in% rm_color) {
+    x <- x[!(x$R == 1 & x$G == 1 & x$B == 1), ]
+  }
+
+  if("black" %in% rm_color) {
+    x <- x[!(x$R == 0 & x$G == 0 & x$B == 0), ]
+  }
+  x
+}
+
+url_to_array <- function(url, warnings) {
   if(!stringr::str_detect(url, "(png|jpg)")) {
-    stop("url_palette only supports .png and files")
+    stop("`url_palette()` only supports .png and .jpg files")
   }
 
   if(stringr::str_detect(url, "png")) {
@@ -55,33 +90,5 @@ url_palette <- function(url, n_clusters = 1, rm_color = c("greyscale"),
       my_image <- suppressWarnings(jpeg::readJPEG(RCurl::getURLContent(url)))
     }
   }
-
-  dimension <- dim(my_image)
-
-  image_rgb <- data.frame(
-    R = as.vector(my_image[, , 1]),
-    G = as.vector(my_image[, , 2]),
-    B = as.vector(my_image[, , 3])
-  )
-
-  if("greyscale" %in% rm_color) {
-    image_rgb <- image_rgb[!(image_rgb$R == image_rgb$G &
-                             image_rgb$G == image_rgb$B), ]
-  }
-  if("white" %in% rm_color) {
-    image_rgb <- image_rgb[!(image_rgb$R == 1 &
-                             image_rgb$G == 1 &
-                             image_rgb$B == 1), ]
-  }
-  if("black" %in% rm_color) {
-    image_rgb <- image_rgb[!(image_rgb$R == 0 &
-                             image_rgb$G == 0 &
-                             image_rgb$B == 0), ]
-  }
-
-  image_rgb <- farver::convert_colour(image_rgb, "rgb", colorspace)
-
-  k_medoids <- cluster::clara(image_rgb, k = n_clusters)
-
-  rgb(pmax(farver::convert_colour(k_medoids$medoids, colorspace, "rgb"), 0))
+  my_image
 }
